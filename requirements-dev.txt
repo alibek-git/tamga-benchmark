@@ -1,0 +1,32 @@
+# Pinned so a published figure is attributable to an exact toolchain (`CLAUDE.md` §4:
+# no silent model swaps). Boring, inspectable dependencies only — a customer's security
+# team has to be able to audit this (`CLAUDE.md` §6).
+#
+# Deliberately excluded from CI: sentence-transformers and torch. The embedding baselines
+# need ~2GB of weights and are not version-stable, so they are measured locally and
+# reported, but never used as a regression floor. See benchmark/harness/make_gates.py.
+
+# Every pin below is the version that actually produced the committed results, read from
+# the environment rather than chosen — a pin naming a version that was never run is a
+# fabricated fact about the toolchain.
+
+# corpus construction
+requests==2.31.0
+
+# transliteration — real ICU, not a substitute. Built against ICU 77.1 locally; the CI
+# runner installs libicu-dev, so its ICU version may differ. ICU's Cyrillic-Latin
+# transform is stable across recent releases, but if a baseline score ever shifts without
+# a code change, check the ICU version first.
+PyICU==2.16.2
+
+# string similarity and phonetics
+rapidfuzz==3.14.5
+jellyfish==1.2.1
+Metaphone==0.6
+Unidecode==1.4.0
+
+# the serious open-source incumbent (OpenSanctions)
+nomenklatura==4.12.4
+
+# tests
+pytest==8.3.4

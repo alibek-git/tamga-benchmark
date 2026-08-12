@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+title: >-
+  tamga-benchmark: an open benchmark for cross-script name matching on Cyrillic
+  and Central Asian names
+message: If you use this benchmark, please cite it.
+type: dataset
+authors:
+  - given-names: Alibek
+    family-names: Zhubekov
+    city: Karaganda
+    country: KZ
+repository-code: https://github.com/alibek-git/tamga-benchmark
+license: CC-BY-4.0
+license-url: https://creativecommons.org/licenses/by/4.0/
+version: v1.0
+date-released: "2026-08-10"
+keywords:
+  - name-matching
+  - entity-resolution
+  - sanctions-screening
+  - transliteration
+  - romanisation
+  - cyrillic
+  - kazakh
+  - benchmark
+abstract: >-
+  A benchmark of 5,102 labelled name pairs measuring cross-script name matching
+  for sanctions and denied-party screening on Russian, Kazakh, Ukrainian,
+  Belarusian, Uzbek, Kyrgyz and Tajik names. Each pair is tagged with the
+  linguistic phenomenon it tests, which converts a score into an error taxonomy.
+  Nineteen baselines are measured, spanning exact match, raw fuzzy matching,
+  English phonetic algorithms, ICU transliteration, multilingual embeddings,
+  purpose-built entity-resolution matchers and frontier language models. The
+  principal finding is that purpose-built matchers recover 58.5% of true matches
+  at a 1% false-positive rate against hard negatives, failing systematically on
+  name structure rather than orthography, while a general-purpose language model
+  given no transliteration tables recovers 97.8% at the same operating point —
+  though it cannot satisfy the determinism and replayability an audited
+  screening pipeline requires.

@@ -1,0 +1,41 @@
+# Data licence — CC BY 4.0
+
+The **corpus, source snapshots and measured results** in this repository are licensed under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+Specifically: `benchmark/pairs/`, `benchmark/sources/`, `benchmark/results/`.
+
+Full licence text: <https://creativecommons.org/licenses/by/4.0/legalcode>
+Summary: <https://creativecommons.org/licenses/by/4.0/>
+
+You are free to share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit, link to the licence, and indicate if changes were
+made.
+
+The code is licensed separately under MIT — see [`LICENSE`](LICENSE).
+
+## Attribution
+
+> Zhubekov, A. (2026). *tamga-benchmark: an open benchmark for cross-script name matching
+> on Cyrillic and Central Asian names*, corpus v1.0.
+> <https://github.com/alibek-git/tamga-benchmark>
+
+## Upstream sources and their terms
+
+This corpus is derived from public sources. Their own terms govern the underlying data and
+are not superseded by the licence above.
+
+| Source | Upstream terms | Use here |
+|---|---|---|
+| **Wikidata** labels | CC0 1.0 (public domain dedication) | Cross-script positive pairs, aligned by construction, and the pool from which hard negatives are drawn |
+| **OFAC SDN list** (US Treasury) | A United States Government work, published for public compliance use. `[VERIFY]` current terms at <https://ofac.treasury.gov> before redistributing the extract | Cross-script and cross-romanisation positives from curated alias sets; the homoglyph finding |
+| **Published transliteration standards** (ISO 9, GOST 7.79, BGN/PCGN, ICAO 9303, KMU 55, Uzbek Latin 1995) | The rule tables are published standards; the implementations in `benchmark/harness/translit.py` are original work under MIT | Synthetic positives with a known ground-truth transformation, capped at 30% of positives |
+
+Only public figures — watchlist entries and Wikidata notables — and synthetic constructions
+appear in the corpus. It contains no customer data and is not a compiled dataset of private
+individuals' identifiers. See [`docs/legal-and-ethics.md`](docs/legal-and-ethics.md) §4.
+
+**Use of this corpus is subject to the defensive-use scope** in
+[`docs/legal-and-ethics.md`](docs/legal-and-ethics.md) §1. That is a condition of the
+project's own posture rather than a licence term, and it is stated plainly so that anyone
+building on this work knows where the author stands.

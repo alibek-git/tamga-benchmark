@@ -1,0 +1,424 @@
+{
+  "dataset_version": "v1.0",
+  "dataset_sha256": "bdbc4e8522b3a5250d99b8e7999df3e1788f44a6848ea79beaef3bad1994d7dc",
+  "measured_run_utc": "2026-08-10T22:11:14Z",
+  "tolerance": 0.01,
+  "how_to_read": "Each floor is the value measured at the recorded run minus the tolerance. A test fails when a current measurement drops below its floor. Regenerate with benchmark/harness/make_gates.py only when a change is understood and intended — silently lowering a floor defeats the purpose of the gate.",
+  "excluded_baselines": {
+    "embedding/*": "not version-stable; would need ~2GB of weights in CI",
+    "nomenklatura/er-unstable": "declared unstable by its own name",
+    "llm-judge": "non-deterministic and credential-gated"
+  },
+  "slices": {
+    "full": {
+      "exact-match-nfkc": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.0,
+          "floor": 0.0
+        },
+        "max_f1": {
+          "measured": 0.656131,
+          "floor": 0.646131
+        },
+        "roc_auc": {
+          "measured": 0.5,
+          "floor": 0.49
+        }
+      },
+      "jaro-winkler-raw": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.248896,
+          "floor": 0.238896
+        },
+        "max_f1": {
+          "measured": 0.656131,
+          "floor": 0.646131
+        },
+        "roc_auc": {
+          "measured": 0.624448,
+          "floor": 0.614448
+        }
+      },
+      "levenshtein-raw": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.249297,
+          "floor": 0.239297
+        },
+        "max_f1": {
+          "measured": 0.656131,
+          "floor": 0.646131
+        },
+        "roc_auc": {
+          "measured": 0.624649,
+          "floor": 0.614649
+        }
+      },
+      "icu-cyrl-latn+jaro-winkler": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.348454,
+          "floor": 0.338454
+        },
+        "max_f1": {
+          "measured": 0.748778,
+          "floor": 0.738778
+        },
+        "roc_auc": {
+          "measured": 0.799407,
+          "floor": 0.789407
+        }
+      },
+      "icu-any-latin-ascii+jaro-winkler": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.410678,
+          "floor": 0.400678
+        },
+        "max_f1": {
+          "measured": 0.759048,
+          "floor": 0.749048
+        },
+        "roc_auc": {
+          "measured": 0.799088,
+          "floor": 0.789088
+        }
+      },
+      "icu-any-latin-ascii+levenshtein": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.405861,
+          "floor": 0.395861
+        },
+        "max_f1": {
+          "measured": 0.768088,
+          "floor": 0.758088
+        },
+        "roc_auc": {
+          "measured": 0.829549,
+          "floor": 0.819549
+        }
+      },
+      "icu+soundex": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.303493,
+          "floor": 0.293493
+        },
+        "max_f1": {
+          "measured": 0.731669,
+          "floor": 0.721669
+        },
+        "roc_auc": {
+          "measured": 0.792528,
+          "floor": 0.782528
+        }
+      },
+      "icu+double-metaphone": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.380971,
+          "floor": 0.370971
+        },
+        "max_f1": {
+          "measured": 0.728422,
+          "floor": 0.718422
+        },
+        "roc_auc": {
+          "measured": 0.763752,
+          "floor": 0.753752
+        }
+      },
+      "nomenklatura/logic-v1": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.519069,
+          "floor": 0.509069
+        },
+        "max_f1": {
+          "measured": 0.679811,
+          "floor": 0.669811
+        },
+        "roc_auc": {
+          "measured": 0.756909,
+          "floor": 0.746909
+        }
+      },
+      "nomenklatura/logic-v2": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.639904,
+          "floor": 0.629904
+        },
+        "max_f1": {
+          "measured": 0.852348,
+          "floor": 0.842348
+        },
+        "roc_auc": {
+          "measured": 0.902234,
+          "floor": 0.892234
+        }
+      },
+      "nomenklatura/name-based": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.441188,
+          "floor": 0.431188
+        },
+        "max_f1": {
+          "measured": 0.804226,
+          "floor": 0.794226
+        },
+        "roc_auc": {
+          "measured": 0.87534,
+          "floor": 0.86534
+        }
+      },
+      "nomenklatura/name-qualified": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.441188,
+          "floor": 0.431188
+        },
+        "max_f1": {
+          "measured": 0.804226,
+          "floor": 0.794226
+        },
+        "roc_auc": {
+          "measured": 0.87534,
+          "floor": 0.86534
+        }
+      },
+      "nomenklatura/ofac": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.226817,
+          "floor": 0.216817
+        },
+        "max_f1": {
+          "measured": 0.656131,
+          "floor": 0.646131
+        },
+        "roc_auc": {
+          "measured": 0.613408,
+          "floor": 0.603408
+        }
+      },
+      "nomenklatura/regression-v1": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.260538,
+          "floor": 0.250538
+        },
+        "max_f1": {
+          "measured": 0.700251,
+          "floor": 0.690251
+        },
+        "roc_auc": {
+          "measured": 0.655191,
+          "floor": 0.645191
+        }
+      }
+    },
+    "hard-negatives-only": {
+      "exact-match-nfkc": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.0,
+          "floor": 0.0
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.5,
+          "floor": 0.49
+        }
+      },
+      "jaro-winkler-raw": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.248896,
+          "floor": 0.238896
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.624448,
+          "floor": 0.614448
+        }
+      },
+      "levenshtein-raw": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.249297,
+          "floor": 0.239297
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.624649,
+          "floor": 0.614649
+        }
+      },
+      "icu-cyrl-latn+jaro-winkler": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.325572,
+          "floor": 0.315572
+        },
+        "max_f1": {
+          "measured": 0.753789,
+          "floor": 0.743789
+        },
+        "roc_auc": {
+          "measured": 0.757696,
+          "floor": 0.747696
+        }
+      },
+      "icu-any-latin-ascii+jaro-winkler": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.390205,
+          "floor": 0.380205
+        },
+        "max_f1": {
+          "measured": 0.7633,
+          "floor": 0.7533
+        },
+        "roc_auc": {
+          "measured": 0.75816,
+          "floor": 0.74816
+        }
+      },
+      "icu-any-latin-ascii+levenshtein": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.376957,
+          "floor": 0.366957
+        },
+        "max_f1": {
+          "measured": 0.768088,
+          "floor": 0.758088
+        },
+        "roc_auc": {
+          "measured": 0.782498,
+          "floor": 0.772498
+        }
+      },
+      "icu+soundex": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.303493,
+          "floor": 0.293493
+        },
+        "max_f1": {
+          "measured": 0.733291,
+          "floor": 0.723291
+        },
+        "roc_auc": {
+          "measured": 0.7311,
+          "floor": 0.7211
+        }
+      },
+      "icu+double-metaphone": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.291048,
+          "floor": 0.281048
+        },
+        "max_f1": {
+          "measured": 0.729271,
+          "floor": 0.719271
+        },
+        "roc_auc": {
+          "measured": 0.700434,
+          "floor": 0.690434
+        }
+      },
+      "nomenklatura/logic-v1": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.449619,
+          "floor": 0.439619
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.723304,
+          "floor": 0.713304
+        }
+      },
+      "nomenklatura/logic-v2": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.585307,
+          "floor": 0.575307
+        },
+        "max_f1": {
+          "measured": 0.852348,
+          "floor": 0.842348
+        },
+        "roc_auc": {
+          "measured": 0.871146,
+          "floor": 0.861146
+        }
+      },
+      "nomenklatura/name-based": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.41108,
+          "floor": 0.40108
+        },
+        "max_f1": {
+          "measured": 0.804387,
+          "floor": 0.794387
+        },
+        "roc_auc": {
+          "measured": 0.833181,
+          "floor": 0.823181
+        }
+      },
+      "nomenklatura/name-qualified": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.41108,
+          "floor": 0.40108
+        },
+        "max_f1": {
+          "measured": 0.804387,
+          "floor": 0.794387
+        },
+        "roc_auc": {
+          "measured": 0.833181,
+          "floor": 0.823181
+        }
+      },
+      "nomenklatura/ofac": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.226817,
+          "floor": 0.216817
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.613408,
+          "floor": 0.603408
+        }
+      },
+      "nomenklatura/regression-v1": {
+        "recall_at_1pct_fpr": {
+          "measured": 0.257728,
+          "floor": 0.247728
+        },
+        "max_f1": {
+          "measured": 0.722762,
+          "floor": 0.712762
+        },
+        "roc_auc": {
+          "measured": 0.640018,
+          "floor": 0.630018
+        }
+      }
+    }
+  },
+  "gate_verdict": {
+    "verdict": "KILL",
+    "best_baseline": "llm-judge/claude-opus-5",
+    "best_max_f1": 0.985887,
+    "reproducible_in_ci": false,
+    "note": "PLAN.md P0 gate over every baseline. The best is an LLM judge, which is non-deterministic and credential-gated, so CI asserts this against the committed metrics.json rather than recomputing it. A change here is a finding to write up, not a test to silence."
+  },
+  "gate_verdict_deterministic_only": {
+    "verdict": "IN-BETWEEN",
+    "best_max_f1": 0.852348,
+    "best_recall_at_1pct_fpr": 0.585307,
+    "reproducible_in_ci": true,
+    "note": "Restricted to deterministic, auditable baselines. This is what CI recomputes from the corpus."
+  }
+}

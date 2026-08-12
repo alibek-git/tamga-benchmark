@@ -1,0 +1,171 @@
+{
+  "dataset_version": "v1.0",
+  "built_utc": "2026-08-10T22:05:21Z",
+  "seed": 20260726,
+  "scope": "PILOT — 300-500 pairs for a same-day P0 signal, not the >=5,000 corpus in benchmark/README.md",
+  "sources": {
+    "wikidata": "wikidata-snapshot-2026-08-10.jsonl",
+    "ofac": "ofac-sdn-extract-2026-07-24.jsonl"
+  },
+  "counts": {
+    "total": 5102,
+    "positive": 2491,
+    "negative": 2611,
+    "hard_negative": 1911,
+    "easy_negative": 700,
+    "synthetic_positive": 745
+  },
+  "composition_targets": {
+    "synthetic_share_of_positives": {
+      "target": "<= 0.30",
+      "actual": 0.2991,
+      "met": true
+    },
+    "hard_share_of_negatives": {
+      "target": ">= 0.60",
+      "actual": 0.7319,
+      "met": true
+    }
+  },
+  "by_language": {
+    "be": 520,
+    "kk": 497,
+    "ky": 198,
+    "ru": 2926,
+    "tg": 145,
+    "uk": 694,
+    "uz": 122
+  },
+  "by_entity_type": {
+    "organisation": 698,
+    "person": 4404
+  },
+  "by_difficulty": {
+    "easy": 1552,
+    "hard": 3550
+  },
+  "by_script_pair": {
+    "Cyrl->Latn": 4500,
+    "Latn->Latn": 550,
+    "Mixed->Latn": 52
+  },
+  "by_source_prefix": {
+    "ofac-sdn": 1250,
+    "synthetic": 745,
+    "wikidata": 3107
+  },
+  "phenomena_counts": {
+    "corruption:mixed-script-homoglyph": 52,
+    "gender:feminine-form": 381,
+    "gender:stripped": 1,
+    "given:diminutive": 1,
+    "given:exonym": 21,
+    "kazakh:cyrillic-latin": 157,
+    "legal-form": 530,
+    "negative:easy": 700,
+    "negative:gender-pair": 380,
+    "negative:patronymic-collision": 166,
+    "negative:romanisation-collision": 341,
+    "negative:same-surname": 650,
+    "negative:similar-string": 1365,
+    "order:swapped": 24,
+    "patronymic:abbreviated": 139,
+    "patronymic:dropped": 353,
+    "patronymic:form-substituted": 105,
+    "patronymic:russified": 1012,
+    "patronymic:turkic": 131,
+    "romanisation:ad-hoc": 582,
+    "romanisation:ala-lc": 16,
+    "romanisation:be-bgn": 29,
+    "romanisation:be-latin-ascii": 21,
+    "romanisation:bgn": 366,
+    "romanisation:diacritics-stripped": 150,
+    "romanisation:gost-b": 21,
+    "romanisation:icao": 128,
+    "romanisation:iso9": 51,
+    "romanisation:kk-latin2021": 5,
+    "romanisation:ru-mediated": 95,
+    "romanisation:scholarly": 19,
+    "romanisation:tg-bgn": 31,
+    "romanisation:uk-kmu55": 63,
+    "romanisation:unattributed-variant": 550,
+    "romanisation:uz-latin1995": 121,
+    "script:same": 550,
+    "synthetic": 745,
+    "token:abbreviated": 5,
+    "token:dropped": 633,
+    "token:unaligned": 383,
+    "uzbek:apostrophe": 83
+  },
+  "required_languages_present": {
+    "ru": true,
+    "kk": true,
+    "uk": true,
+    "uz": true,
+    "ky": true
+  },
+  "shortfalls_against_target": {
+    "negative-similar-string": {
+      "wanted": 700,
+      "available": 375
+    },
+    "negative-romanisation-collision": {
+      "wanted": 380,
+      "available": 344
+    },
+    "negative-patronymic-collision": {
+      "wanted": 200,
+      "available": 178
+    }
+  },
+  "excluded": {
+    "duplicate_name_pairs_removed": 25,
+    "duplicate_labels_that_disagreed": 0,
+    "duplicate_examples": [
+      {
+        "name_a": "Николай Ефремович Полищук",
+        "name_b": "Kyrylo Polishchuk",
+        "dropped_source": "wikidata:Q11787579|wikidata:Q12142189",
+        "kept_source": "wikidata:Q11787579|wikidata:Q12142189",
+        "same_entity": false,
+        "label_agreed": true
+      },
+      {
+        "name_a": "Болат Кеңесбекұлы Ниязымбетов",
+        "name_b": "Azamat Niyazymbetov",
+        "dropped_source": "wikidata:Q2617878|wikidata:Q65250057",
+        "kept_source": "wikidata:Q2617878|wikidata:Q65250057",
+        "same_entity": false,
+        "label_agreed": true
+      },
+      {
+        "name_a": "Валерый Іосіфавіч Альшанскі",
+        "name_b": "Anatoly Ol'shanskii",
+        "dropped_source": "wikidata:Q116259265|wikidata:Q136688169",
+        "kept_source": "wikidata:Q116259265|wikidata:Q136688169",
+        "same_entity": false,
+        "label_agreed": true
+      },
+      {
+        "name_a": "Литвин Петро Михайлович",
+        "name_b": "Volodymyr Lytvyn",
+        "dropped_source": "wikidata:Q4263578|wikidata:Q463095",
+        "kept_source": "wikidata:Q4263578|wikidata:Q463095",
+        "same_entity": false,
+        "label_agreed": true
+      },
+      {
+        "name_a": "Вячеслав Александрович Анисимов",
+        "name_b": "Leonid Anisimov",
+        "dropped_source": "wikidata:Q12078794|wikidata:Q12078798",
+        "kept_source": "wikidata:Q12078794|wikidata:Q12078798",
+        "same_entity": false,
+        "label_agreed": true
+      }
+    ],
+    "synthetic_pairs_with_non_latin_output": 0,
+    "negatives_with_identical_normalised_names": 127,
+    "reason": "correctly labelled as different entities (differing DOB) but unresolvable from names alone; including them would add a fixed error floor to every baseline that says nothing about the transliteration gap"
+  },
+  "sha256_of_corpus": "bdbc4e8522b3a5250d99b8e7999df3e1788f44a6848ea79beaef3bad1994d7dc"
+}

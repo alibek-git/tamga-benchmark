@@ -1,0 +1,73 @@
+{
+  "run_utc": "2026-07-26T13:56:14Z",
+  "python": "3.12.1",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "elapsed_seconds": 47.0,
+  "baselines_run": [
+    "exact-match-nfkc",
+    "jaro-winkler-raw",
+    "levenshtein-raw",
+    "icu-cyrl-latn+jaro-winkler",
+    "icu-any-latin-ascii+jaro-winkler",
+    "icu-any-latin-ascii+levenshtein",
+    "icu+soundex",
+    "icu+double-metaphone",
+    "nomenklatura/logic-v1",
+    "nomenklatura/logic-v2",
+    "nomenklatura/name-based",
+    "nomenklatura/name-qualified",
+    "nomenklatura/ofac",
+    "nomenklatura/regression-v1",
+    "nomenklatura/er-unstable",
+    "embedding/LaBSE",
+    "embedding/multilingual-e5-base"
+  ],
+  "baselines_not_run": [
+    {
+      "baseline": "llm-judge",
+      "reason": "no API credential in the environment",
+      "result": "TBD — not estimated"
+    }
+  ],
+  "diagnostics": {
+    "core": {
+      "count": 8
+    },
+    "nomenklatura": {
+      "available": true,
+      "version": "4.12.4",
+      "algorithms": [
+        "logic-v1",
+        "logic-v2",
+        "name-based",
+        "name-qualified",
+        "ofac",
+        "regression-v1",
+        "er-unstable"
+      ]
+    },
+    "embeddings": {
+      "available": true,
+      "models": {
+        "LaBSE": {
+          "loaded": true,
+          "model_id": "sentence-transformers/LaBSE"
+        },
+        "multilingual-e5-base": {
+          "loaded": true,
+          "model_id": "intfloat/multilingual-e5-base"
+        }
+      },
+      "sentence_transformers_version": "5.6.1",
+      "torch_version": "2.7.1"
+    },
+    "llm_judge": {
+      "baseline": "llm-judge",
+      "why_in_the_list": "'Just use an LLM' is the answer a buyer will raise, and it is the honest baseline to beat as well as the cost ceiling (PLAN.md P0, docs/domain-notes.md §7).",
+      "requirement": "An Anthropic API credential in the environment (ANTHROPIC_API_KEY or ANTHROPIC_AUTH_TOKEN).",
+      "available": false,
+      "reason": "no API credential in the environment",
+      "result": "NOT RUN — reported as TBD, not estimated"
+    }
+  }
+}

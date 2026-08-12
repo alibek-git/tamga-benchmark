@@ -1,0 +1,88 @@
+{
+  "source": "Wikidata Query Service",
+  "endpoint": "https://query.wikidata.org/sparql",
+  "licence": "CC0 1.0 (Wikidata data) [VERIFY: confirmed against https://www.wikidata.org/wiki/Wikidata:Licensing before publication]",
+  "fetched_utc": "2026-08-10T20:27:58Z",
+  "rows": 23255,
+  "person_targets": {
+    "ru": {
+      "countries": [
+        "Q159",
+        "Q15180"
+      ],
+      "occupation_restricted": true,
+      "limit": 6000
+    },
+    "kk": {
+      "countries": [
+        "Q232"
+      ],
+      "occupation_restricted": false,
+      "limit": 4000
+    },
+    "uk": {
+      "countries": [
+        "Q212"
+      ],
+      "occupation_restricted": true,
+      "limit": 6000
+    },
+    "uz": {
+      "countries": [
+        "Q265"
+      ],
+      "occupation_restricted": false,
+      "limit": 3000
+    },
+    "ky": {
+      "countries": [
+        "Q813"
+      ],
+      "occupation_restricted": false,
+      "limit": 2000
+    },
+    "be": {
+      "countries": [
+        "Q184"
+      ],
+      "occupation_restricted": false,
+      "limit": 4000
+    },
+    "tg": {
+      "countries": [
+        "Q863"
+      ],
+      "occupation_restricted": false,
+      "limit": 2000
+    },
+    "az": {
+      "countries": [
+        "Q227"
+      ],
+      "occupation_restricted": false,
+      "limit": 3000
+    }
+  },
+  "pep_occupations": [
+    "Q82955",
+    "Q43845",
+    "Q189290",
+    "Q193391",
+    "Q806798"
+  ],
+  "org_targets": {
+    "ru": [
+      "Q159"
+    ],
+    "kk": [
+      "Q232"
+    ],
+    "uk": [
+      "Q212"
+    ],
+    "uz": [
+      "Q265"
+    ]
+  },
+  "note": "Wikidata is live; re-running this script on another date returns different rows. The snapshot file is the reproducibility guarantee."
+}

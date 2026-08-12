@@ -1,0 +1,110 @@
+{
+  "dataset_version": "pilot-v0.1",
+  "built_utc": "2026-07-26T13:53:32Z",
+  "seed": 20260726,
+  "scope": "PILOT — 300-500 pairs for a same-day P0 signal, not the >=5,000 corpus in benchmark/README.md",
+  "sources": {
+    "wikidata": "wikidata-snapshot-2026-07-26.jsonl",
+    "ofac": "ofac-sdn-extract-2026-07-24.jsonl"
+  },
+  "counts": {
+    "total": 460,
+    "positive": 230,
+    "negative": 230,
+    "hard_negative": 165,
+    "easy_negative": 65,
+    "synthetic_positive": 68
+  },
+  "composition_targets": {
+    "synthetic_share_of_positives": {
+      "target": "<= 0.30",
+      "actual": 0.2957,
+      "met": true
+    },
+    "hard_share_of_negatives": {
+      "target": ">= 0.60",
+      "actual": 0.7174,
+      "met": true
+    }
+  },
+  "by_language": {
+    "be": 33,
+    "kk": 66,
+    "ky": 23,
+    "ru": 243,
+    "tg": 21,
+    "uk": 61,
+    "uz": 13
+  },
+  "by_entity_type": {
+    "organisation": 52,
+    "person": 408
+  },
+  "by_difficulty": {
+    "easy": 156,
+    "hard": 304
+  },
+  "by_script_pair": {
+    "Cyrl->Latn": 416,
+    "Latn->Latn": 40,
+    "Mixed->Latn": 4
+  },
+  "by_source_prefix": {
+    "ofac-sdn": 98,
+    "synthetic": 68,
+    "wikidata": 294
+  },
+  "phenomena_counts": {
+    "corruption:mixed-script-homoglyph": 4,
+    "gender:feminine-form": 30,
+    "given:diminutive": 1,
+    "given:exonym": 2,
+    "kazakh:cyrillic-latin": 23,
+    "legal-form": 38,
+    "negative:easy": 65,
+    "negative:gender-pair": 30,
+    "negative:patronymic-collision": 20,
+    "negative:romanisation-collision": 30,
+    "negative:same-surname": 45,
+    "negative:similar-string": 115,
+    "order:swapped": 4,
+    "patronymic:abbreviated": 8,
+    "patronymic:dropped": 36,
+    "patronymic:form-substituted": 11,
+    "patronymic:russified": 105,
+    "patronymic:turkic": 14,
+    "romanisation:ad-hoc": 62,
+    "romanisation:ala-lc": 1,
+    "romanisation:bgn": 29,
+    "romanisation:diacritics-stripped": 9,
+    "romanisation:gost-b": 2,
+    "romanisation:icao": 17,
+    "romanisation:iso9": 4,
+    "romanisation:kk-latin2021": 1,
+    "romanisation:ru-mediated": 16,
+    "romanisation:scholarly": 1,
+    "romanisation:tg-bgn": 4,
+    "romanisation:uk-kmu55": 11,
+    "romanisation:unattributed-variant": 40,
+    "romanisation:uz-latin1995": 12,
+    "script:same": 40,
+    "synthetic": 68,
+    "token:dropped": 51,
+    "token:unaligned": 24,
+    "uzbek:apostrophe": 8
+  },
+  "required_languages_present": {
+    "ru": true,
+    "kk": true,
+    "uk": true,
+    "uz": true,
+    "ky": true
+  },
+  "shortfalls_against_target": {},
+  "excluded": {
+    "synthetic_pairs_with_non_latin_output": 0,
+    "negatives_with_identical_normalised_names": 41,
+    "reason": "correctly labelled as different entities (differing DOB) but unresolvable from names alone; including them would add a fixed error floor to every baseline that says nothing about the transliteration gap"
+  },
+  "sha256_of_corpus": "4eaae6355798c59d0bf7dad9d635a6f05ce23711ab5799a1f6d3148a4596211a"
+}

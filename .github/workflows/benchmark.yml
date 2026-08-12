@@ -1,0 +1,79 @@
+name: benchmark
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# The point of this workflow is layer 3 of `tests/README.md`: the benchmark's accuracy
+# gates run on every change, so a refactor that quietly costs recall fails the build
+# rather than being discovered months later (`CLAUDE.md` §6).
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ICU
+        # PyICU builds against the system ICU. The benchmark uses real ICU rather than a
+        # hand-written substitute because "ICU transliteration + fuzzy match" is the
+        # commodity method the thesis has to beat, so it has to be the genuine article.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libicu-dev pkg-config
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Unit and integrity tests
+        run: python -m pytest tests/ -v --tb=short -m "not slow"
+
+      - name: Verify the corpus rebuilds byte-identically
+        # Determinism is a product requirement, not a nicety: auditors replay historical
+        # decisions, so the corpus a figure was measured on must be reconstructible
+        # exactly (`CLAUDE.md` §4). Rebuilds from the committed snapshots — no network.
+        run: |
+          BEFORE=$(shasum -a 256 benchmark/pairs/v1.0.jsonl | cut -d' ' -f1)
+          python3 benchmark/harness/build/build_pairs.py
+          AFTER=$(shasum -a 256 benchmark/pairs/v1.0.jsonl | cut -d' ' -f1)
+          echo "before: $BEFORE"
+          echo "after:  $AFTER"
+          if [ "$BEFORE" != "$AFTER" ]; then
+            echo "::error::corpus rebuild is not byte-identical"
+            git --no-pager diff --stat benchmark/pairs/ || true
+            exit 1
+          fi
+
+      - name: Confirm no uncommitted corpus drift
+        # Only the corpus file is under the byte-identical guarantee. The manifest carries
+        # a `built_utc` provenance timestamp by design, so it legitimately differs on
+        # every rebuild — diffing the whole directory failed for that reason alone. The
+        # manifest is checked by its recorded checksum instead, which is the field that
+        # actually has to agree with the corpus.
+        run: |
+          if ! git diff --quiet benchmark/pairs/v1.0.jsonl; then
+            echo "::error::rebuilt corpus differs from the committed one"
+            git --no-pager diff --stat benchmark/pairs/v1.0.jsonl
+            exit 1
+          fi
+          python3 - <<'EOF'
+          import hashlib, json, pathlib, sys
+          corpus = pathlib.Path("benchmark/pairs/v1.0.jsonl")
+          manifest = json.loads(
+              pathlib.Path("benchmark/pairs/v1.0.manifest.json").read_text())
+          digest = hashlib.sha256(corpus.read_bytes()).hexdigest()
+          if digest != manifest["sha256_of_corpus"]:
+              print(f"::error::manifest checksum {manifest['sha256_of_corpus'][:16]} "
+                    f"does not match corpus {digest[:16]}")
+              sys.exit(1)
+          print(f"manifest checksum agrees with corpus: {digest[:16]}")
+          EOF
+          # The rebuild rewrites the manifest timestamp; discard that so the tree is clean.
+          git checkout -- benchmark/pairs/v1.0.manifest.json

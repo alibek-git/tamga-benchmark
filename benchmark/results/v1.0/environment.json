@@ -1,0 +1,98 @@
+{
+  "run_utc": "2026-08-10T22:11:20Z",
+  "python": "3.12.1",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "elapsed_seconds": 353.1,
+  "baselines_run": [
+    "exact-match-nfkc",
+    "jaro-winkler-raw",
+    "levenshtein-raw",
+    "icu-cyrl-latn+jaro-winkler",
+    "icu-any-latin-ascii+jaro-winkler",
+    "icu-any-latin-ascii+levenshtein",
+    "icu+soundex",
+    "icu+double-metaphone",
+    "nomenklatura/logic-v1",
+    "nomenklatura/logic-v2",
+    "nomenklatura/name-based",
+    "nomenklatura/name-qualified",
+    "nomenklatura/ofac",
+    "nomenklatura/regression-v1",
+    "nomenklatura/er-unstable",
+    "embedding/LaBSE",
+    "embedding/multilingual-e5-base",
+    "llm-judge/claude-sonnet-5",
+    "llm-judge/claude-opus-5"
+  ],
+  "baselines_not_run": [],
+  "diagnostics": {
+    "core": {
+      "count": 8
+    },
+    "nomenklatura": {
+      "available": true,
+      "version": "4.12.4",
+      "algorithms": [
+        "logic-v1",
+        "logic-v2",
+        "name-based",
+        "name-qualified",
+        "ofac",
+        "regression-v1",
+        "er-unstable"
+      ]
+    },
+    "embeddings": {
+      "available": true,
+      "models": {
+        "LaBSE": {
+          "loaded": true,
+          "model_id": "sentence-transformers/LaBSE"
+        },
+        "multilingual-e5-base": {
+          "loaded": true,
+          "model_id": "intfloat/multilingual-e5-base"
+        }
+      },
+      "sentence_transformers_version": "5.6.1",
+      "torch_version": "2.7.1"
+    },
+    "llm_judge": {
+      "baseline": "llm-judge",
+      "why_in_the_list": "'Just use an LLM' is the answer a buyer will raise, and it is the honest baseline to beat as well as the cost ceiling (PLAN.md P0, docs/domain-notes.md §7).",
+      "requirement": "An Anthropic API credential in the environment (ANTHROPIC_API_KEY or ANTHROPIC_AUTH_TOKEN).",
+      "available": true,
+      "models": [
+        "claude-sonnet-5",
+        "claude-opus-5"
+      ],
+      "temperature": "not set — deprecated for the Claude 5 family and rejected with HTTP 400",
+      "usage": {
+        "claude-sonnet-5": {
+          "calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "errors": 0,
+          "unparseable": 0,
+          "truncated_retried": 0,
+          "cached": 0,
+          "errored_entries_in_cache": 0,
+          "distinct_scores": 34,
+          "response_cache": "llm-judge-claude-sonnet-5.jsonl"
+        },
+        "claude-opus-5": {
+          "calls": 54,
+          "input_tokens": 6689,
+          "output_tokens": 2284,
+          "errors": 0,
+          "unparseable": 0,
+          "truncated_retried": 0,
+          "cached": 0,
+          "errored_entries_in_cache": 0,
+          "distinct_scores": 46,
+          "response_cache": "llm-judge-claude-opus-5.jsonl"
+        }
+      }
+    }
+  }
+}

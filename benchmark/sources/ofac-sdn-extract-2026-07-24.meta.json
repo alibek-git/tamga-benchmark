@@ -1,0 +1,18 @@
+{
+  "source": "US Treasury OFAC — Specially Designated Nationals (SDN) Advanced XML",
+  "url": "https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN_ADVANCED.XML",
+  "sdn_publication_date": "2026-07-24",
+  "fetched_utc": "2026-07-26T13:17:51Z",
+  "sha256_of_source_xml": "e71e2d07019500cdf1b39e74b31044aaa18499f06db60906cc8bc30765af548e",
+  "identities_with_both_scripts": 2910,
+  "of_which_persons": 1529,
+  "of_which_organisations": 1381,
+  "exclusions": [
+    "LowQuality (weak) aliases excluded — frequently partial names or nicknames",
+    "Nickname name-parts excluded",
+    "vessels and aircraft excluded — IMO number is the stable key, not the name (docs/domain-notes.md §6)",
+    "DocumentedNames mixing scripts within one name excluded as unrenderable"
+  ],
+  "licence": "US Government work, published for public compliance use. [VERIFY current terms at https://ofac.treasury.gov before redistributing this extract in a published benchmark]",
+  "language_field_note": "OFAC records script, not language. `language` is inferred from Cyrillic letter inventory; `language_basis` records the evidence. Not ground truth."
+}

@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environment / secrets
+.env
+.env.*
+*.key
+*credentials*.json
+*service-account*.json
+
+# Data — never commit bulk watchlist dumps or raw source data.
+# The benchmark's committed artifacts are the labelled pairs + results, not the raw inputs.
+data/
+benchmark/raw/
+benchmark/cache/
+*.csv
+*.parquet
+!benchmark/pairs/*.jsonl
+!benchmark/results/*.json
+
+# ...but the benchmark's own labelled pairs and results ARE the deliverable and must be
+# committed as data rather than pasted into prose (benchmark/README.md, harness
+# requirements). The blanket *.csv above is for bulk source dumps, not for these.
+!benchmark/pairs/**/*.jsonl
+!benchmark/pairs/**/*.json
+!benchmark/results/**/*.csv
+!benchmark/results/**/*.json
+!benchmark/results/**/*.jsonl
+!benchmark/sources/**/*.jsonl
+!benchmark/sources/**/*.json
+
+# Customer data — must never be committed under any circumstance.
+# (See docs/legal-and-ethics.md §4.)
+customer/
+screening-payloads/
+
+# Models
+*.pkl
+*.joblib
+*.onnx
+models/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
